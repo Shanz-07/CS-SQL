@@ -118,7 +118,7 @@ fibonacci_generator_or_factorial()
 
 #PROGRAM_06 -> Write a program using function to read a file and count the words “to” and “the” present in the text file.
 
-file1=open('p6.txt','r')
+file1=open('lab program\p6.txt','r')
 data=file1.read()
 words=data.split()
 x=0
@@ -130,7 +130,7 @@ print(x)
 
 #PROGRAM_07 -> WAP to read a text file and create another file that is identical except every blank/space is replaced by a comma.
 
-file1=open('p7.txt','r+')
+file1=open('lab program\p7.txt','r+')
 data=file1.read()
 print(data)
 new_data=data.replace(' ',',')
@@ -141,7 +141,7 @@ file1.close()
 
 #PROGRAM_08 -> WAP using function to read lines and display those lines which are starting either with ‘A’or ‘E’.
 
-file1=open('p8.txt','r+')
+file1=open('lab program\p8.txt','r+')
 data=file1.read()
 words=data.splitlines()
 for i in words:
@@ -151,6 +151,18 @@ for i in words:
 
 #PROGRAM_09 -> WAP to display the size of a file after removing EOL characters, leading and trailing white 
 #spaces and blank lines.
+
+file1=open('lab program\p9.txt','r+')
+data=file1.read()
+print(data)
+for i in data:
+    if i ==' ':
+        data=data.strip()
+file1.close()
+file1=open('lab program\p9.txt','w')
+file1.write(data)
+file1.close()
+
 
 
 #PROGRAM_10 ->WAP to get the roll numbers, names and marks of the 3 students of a class(get from theuser) 
@@ -162,7 +174,60 @@ for i in range(3):
     marks=input("Enter the marks: ")
     file1.write(rno+' '+name+' '+marks+'\n')
 file1.close()
-'''
+
+
 #PROGRAM_11 -> WAP to create a binary file:” student.dat” and write into it the students’ details - roll_no,
 # name, marks. Read and display the students’ records stored in it.
+import pickle
+file1=open('lab program\student.dat','wb+')
+n=int(input("Enter the no of students: "))
+for i in range(n):
+    rno=int(input("Enter your roll no: "))
+    name=input("Enter your name: ")
+    marks=int(input("Enter your marks: "))
+    student_data=[rno,name,marks]
+    pickle.dump(student_data,file1)
+file1.seek(0)
+while True:
+    try:
+        data=pickle.load(file1)
+        print(f"rno: {data[0]},name: {data[1]},marks: {data[2]}")
+    except EOFError:
+        break
+file1.close()
 
+#PROGRAM_12 -> WAP to Read the file “student.dat” created in the previous program and update the
+# records for those who have scored more than 80 get additional bonus of 5.
+import pickle
+file1=open('lab program\student.dat','rb')
+students=[]
+while True:
+    try:
+        data=pickle.load(file1)
+        if data[2]>=80:
+            data[2]+=5
+        students.append(data)
+    except EOFError:
+        break
+file1.close
+file1=open('lab program\student.dat','wb')
+for i in students:
+    pickle.dump(i,file1)
+file1.close()
+
+#PROGRAM_13 -> WAP to create a CSV file “result.csv” and write rollno, name, marks, grade of students
+# into it. Read the file and display the records.
+import csv
+file1=open('lab program\student.dat','w+',newline='')
+writer=csv.writer(file1)
+writer.writerow(['rno','name','marks','grade'])
+n=int(input("Enter the no of students"))
+for i in range(n):
+    rno=int(input("Enter your roll no: "))
+    name=input("Enter your name: ")
+    marks=int(input("Enter your marks: "))
+    grade=input("Enter your grade: ")
+    writer.writerow([rno,name,marks,grade])
+reader=csv.reader(file1)
+print(reader)
+'''
