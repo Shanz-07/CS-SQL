@@ -1,36 +1,3 @@
-'''Vydehi school of excellence
-PYTHON PROGRAMS
-1. WAP using function lshift(lst,n) in Python which accepts a
-list of numbers and n is the numeric value by which all elements of the list ae shifted to left.
-3. WAP using the function that takes 2 numbers and returns the number that has minimum one’s
-digit.
-4. WAP using function that receives two strings arguments and checks whether they are same length
-string (Returns True in this case else False).
-5. WAP using function that generate a series using a function which takes first and last values of the
-series and generate four terms that are equidistant.
-6. Write a menu driven program using function to
-(i)generate Fibonacci series between 1 to 200
-0,1,1,2,3,5,8,13,21………
-(ii) Write a program to find factorial of a number.
-7. Write a program using function to read a file and count the words “to” and “the” present in
-the text file.
-8. WAP to read a text file and create another file that is identical except every blank/space is
-replaced by a comma.
-9. WAP using function to read lines and display those lines which are starting either with ‘A’
-or ‘E’.
-10. WAP to display the size of a file after removing EOL characters, leading and trailing white
-spaces and blank lines.
-11. WAP to get the roll numbers, names and marks of the 3 students of a class(get from the
-user) and store these details in a file called “Marklist.txt” .
-12. WAP to create a binary file:” student.dat” and write into it the students’ details - roll_no,
-name, marks. Read and display the students’ records stored in it.
-13. WAP to Read the file “student.dat” created in the previous program and update the
-records for those who have scored more than 80 get additional bonus of 5.
-14. WAP to create a CSV file “result.csv” and write rollno, name, marks, grade of students
-into it. Read the file and display the records.
-15. Writing a python program to implement stack operations push pop and display using List.
-16. Writing a Python program for push(0 and pop() method using the following informations:-
-pincode, ii) city'''
 
 #PROGRAM_01 -> *WAP using function lshift(lst,n) in Python which accepts a 
 # list of numbers and n is the numeric value by which all elements of the list is shifted to left.
@@ -230,4 +197,93 @@ for i in range(n):
     writer.writerow([rno,name,marks,grade])
 reader=csv.reader(file1)
 print(reader)
+
+
+#PROGRAM_14 -> Writing a python program to implement stack operations push pop and display using List.
+stack=[]
+def push():
+    e=int(input("Enter your element to be pushed: "))
+    stack.append(e)
+def pop():
+    stack.pop()  
+def display():
+    print(stack)
+while True: 
+    print("Which operation do you want to proceed: \n1) push: (press 1)\n2) pop: (press 2)\n3) display: (press 3)\n4) exit: (press 4) ")
+    x=int(input())
+    if x == 1:
+        push()
+    if x==2:
+        pop()
+    if x==3:
+        display()
+    if x==4:
+        break
+
+#PROGRAM_15 ->  Writing a Python program for push(0 and pop() method using the following informations:-
+# pincode, ii) city
+stack=[]
+def push():
+    pincode=int(input("Enter your pincode: "))
+    city=input("Enter your city name: ")
+    entry={'pincode':pincode,'city':city}
+    stack.append(entry)
+def pop():
+    stack.pop()
+def display():
+    print(stack)
+while True:
+    print("Which operation do you want to proceed: \n1) push: (press 1)\n2) pop: (press 2)\n3) display: (press 3)\n4) exit: (press 4) ")
+    x=int(input())
+    if x == 1:
+        push()
+    if x==2:
+        pop()
+    if x==3:
+        display()
+    if x==4:
+        break
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+'''
+#SQL - QUERIES
+'''Consider the tables dept and emp below and write the queries for the following Dept emp
+Query1- To create the tables Dept and emp.
+Query2- To insert the values in the tables.
+Query3- Add a new attribute date_of_join to the table emp and insert the appropriate
+value for the same.
+Query4-Display the details of department who’s head name ends with letter ‘a’.
+Query5-Display maximum, minimum, average and sum of the salaries of the employees
+in each department in descending order of salary from emp table.
+Query6-Display department wise the number of employees from emp table having count
+more than one.
+Query7- Display department number, department name and salary of all the employees.
+Query8 - List the employee having salary more than 100000 and working in Production
+department.
+Query9 - Increment the salary of all the employees of Sales department.
+Query 10- Delete the record of the employee who is not receiving the salary from emp
+table.'''
+'''
+Query - 01: 
+1)create table Dept(deptno INT(50),dname varchar(50),dhead varchar(50));
+2)create table emp(empno int(50),ename varchar(50),deptno int(50),salary int(50));
+
+Query - 02:
+1) insert into Dept VALUES(10,'Sales','Ritika');
+   insert into Dept VALUES(20,'HR','Ankit');
+   insert into Dept VALUES(30,'Production','Abuzair');
+   insert into Dept VALUES(40,'IT','Mesha');
+
+2) insert into emp VALUES(1,'Alam',10,11924);
+   insert into emp VALUES(2,'Srijeeta',20,9450);
+   insert into emp VALUES(3,'Bhaskar',30,118986);
+   insert into emp VALUES(4,'Rita',10,13892);
+   insert into emp VALUES(5,'Riyan',20,null);
+
+3) 
+
+
+
+
+
 '''
