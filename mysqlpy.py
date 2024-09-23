@@ -1,6 +1,6 @@
 #MySQL-Python
 import mysql.connector as sqltor
-mycon=sqltor.connect(host='localhost',user='root',passwd="Rehan@123",database="cs")
+mycon=sqltor.connect(host='localhost',user='root',passwd="",database="cs")
 if mycon.is_connected():
     print("Succesfully connected to mysql database")
 cursor=mycon.cursor()
