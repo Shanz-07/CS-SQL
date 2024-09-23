@@ -220,7 +220,7 @@ while True:
         display()
     if x==4:
         break
-'''
+
 #PROGRAM_15 ->  Writing a Python program for push(0 and pop() method using the following informations:-
 # pincode, ii) city
 stack=[]
@@ -244,8 +244,7 @@ while True:
         display()
     if x==4:
         break
-    '''
-''''''''
+ 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #SQL - QUERIES
@@ -265,8 +264,8 @@ Query8 - List the employee having salary more than 100000 and working in Product
 department.
 Query9 - Increment the salary of all the employees of Sales department.
 Query 10- Delete the record of the employee who is not receiving the salary from emp
-table.'''
-'''
+table.
+
 Query - 01: 
 1)create table Dept(deptno INT(50),dname varchar(50),dhead varchar(50));
 2)create table emp(empno int(50),ename varchar(50),deptno int(50),salary int(50));
@@ -320,4 +319,34 @@ WHERE d.dname = 'Sales';
 Query-10:
 DELETE FROM emp
 WHERE salary IS NULL;
+
+ 
+Write a program to connect Python with MySQL using database connectivity and 
+perform the following operations on data in database: Insert, Fetch, Update and 
+delete the data 
+ 
+ 
+Program 1- Create a table Dept 
+Program2 – Insert the data in the table. 
+Program 3- Fetch and display the data.  
+Program4- Change the dname to Management whose head is Ankit. 
+Progarm5- Delete the record of IT department.
+
+
+import mysql.connector as mysqlctr
+mycon=mysqlctr.connect(user='root',password='',host='localhost',database='neww',auth_plugin='mysql_native_password')
+if mycon.is_connected:
+    print("Success")
+cursor=mycon.cursor()
+cursor.execute('Create table Dept(deptno INT(50),dname varchar(50),dhead varchar(50))')
+cursor.execute("Insert into Dept VALUES(10,'Sales','Ritika')")
+cursor.execute("Insert into Dept VALUES(20,'HR','Ankit')")
+cursor.execute("Insert into Dept VALUES(30,'Production','Abuzair')")
+cursor.execute("Insert into Dept VALUES(40,'IT','Mesha')")
+cursor.execute("Update dept set dname='Management' where dhead='Ankit' ")
+cursor.execute("Delete from dept where dname='IT'")
+cursor.execute("SELECT * FROM Dept")
+data=cursor.fetchall()
+print(data)
+mycon.commit()
 '''
