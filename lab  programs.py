@@ -63,8 +63,8 @@ def fibonacci_generator_or_factorial():
     if x=='a':
         first=0
         sec=1
-        print(first)
-        print(sec)
+        print(first,end=' ')
+        print(sec,end=' ')
         while True:
             n1=first+sec
             if first<sec:
@@ -75,12 +75,12 @@ def fibonacci_generator_or_factorial():
                 first=n1
             if n1>=200:
                 break
-            print(n1)
+            print(n1,end=' ')
     if x=='b':
         n=int(input("Enter the no to find factorial: "))
         for i in range(n-1):
             n*=i+1
-            print(n) 
+        print(n) 
 fibonacci_generator_or_factorial()
 
 #PROGRAM_06 -> Write a program using function to read a file and count the words “to” and “the” present in the text file.
@@ -174,6 +174,7 @@ while True:
         if data[2]>=80:
             data[2]+=5
         students.append(data)
+        print(data)
     except EOFError:
         break
 file1.close
@@ -219,7 +220,7 @@ while True:
         display()
     if x==4:
         break
-
+'''
 #PROGRAM_15 ->  Writing a Python program for push(0 and pop() method using the following informations:-
 # pincode, ii) city
 stack=[]
@@ -243,11 +244,13 @@ while True:
         display()
     if x==4:
         break
-
+    '''
+''''''''
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
-'''
+
 #SQL - QUERIES
-'''Consider the tables dept and emp below and write the queries for the following Dept emp
+Consider the tables dept and emp below and write the queries for the following Dept emp
+
 Query1- To create the tables Dept and emp.
 Query2- To insert the values in the tables.
 Query3- Add a new attribute date_of_join to the table emp and insert the appropriate
@@ -280,10 +283,41 @@ Query - 02:
    insert into emp VALUES(4,'Rita',10,13892);
    insert into emp VALUES(5,'Riyan',20,null);
 
-3) 
+Query - 03:
+alter table emp
+add column date_of_join date;
 
+Query-04:
+select * from dept where dhead like '%a';
 
+Query-05:
+select max(salary),min(salary),avg(salary),sum(salary) from emp order by salary desc
 
+Query-06:
+SELECT d.dname, COUNT(e.empno) AS employee_count
+FROM emp e 
+JOIN dept d ON e.deptno = d.deptno
+GROUP BY d.dname
+HAVING COUNT(e.empno) > 0;
 
+Query-07:
+SELECT e.deptno, d.dname, e.salary
+FROM emp e
+JOIN dept d ON e.deptno = d.deptno;
 
+Query-08:
+SELECT e.empno, e.ename, e.salary, d.dname
+FROM emp e
+JOIN dept d ON e.deptno = d.deptno
+WHERE e.salary > 100000 AND d.dname = 'Production';
+
+Query-09:
+UPDATE emp e
+JOIN dept d ON e.deptno = d.deptno
+SET e.salary = e.salary + (e.salary * 0.10)
+WHERE d.dname = 'Sales';
+
+Query-10:
+DELETE FROM emp
+WHERE salary IS NULL;
 '''
